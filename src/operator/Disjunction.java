@@ -1,8 +1,8 @@
 package operator;
 
-public class Disjunction extends Operator {
+public class Disjunction implements Operator {
 
-    final int priority = 3;
+    final int priority = 2;
     final int amountOfVariables = 2;
     final String mark = "|";
 

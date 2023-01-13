@@ -1,8 +1,8 @@
 package operator;
 
-public class Negation extends Operator {
+public class Negation implements Operator {
 
-    final int priority = 1;
+    final int priority = 4;
     final int amountOfVariables = 1;
     final String mark = "!";
 

@@ -1,8 +1,8 @@
 package operator;
 
-public class Implication extends Operator {
+public class Implication implements Operator {
 
-    final int priority = 4;
+    final int priority = 1;
     final int amountOfVariables = 2;
     final String mark = "->";
 

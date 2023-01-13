@@ -1,19 +1,14 @@
 package operator;
 
-public class Conjuction extends Operator {
+public class Conjuction implements Operator {
 
-    final int priority = 2;
+    final int priority = 3;
     final int amountOfVariables = 2;
     final String mark = "&";
 
     @Override
     public boolean execute(boolean... variable) {
-        if (variable[0] && variable[1]) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return variable[0] && variable[1];
     }
 
     @Override

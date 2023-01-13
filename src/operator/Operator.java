@@ -1,17 +1,13 @@
 package operator;
 
-public abstract class Operator {
+public interface Operator {
 
-    private int priority;
-    private int amountOfVariables;
-    private String mark;
+    public boolean execute(boolean... variable);
 
-    public abstract boolean execute(boolean... variable);
+    public int getPriority();
 
-    public abstract int getPriority();
+    public int getAmountOfVariables();
 
-    public abstract int getAmountOfVariables();
-
-    public abstract String getMark();
+    public String getMark();
 
 }
