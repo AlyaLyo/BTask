@@ -5,6 +5,7 @@ import operator.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.TreeMap;
 
 public class StatementManager {
 
@@ -15,7 +16,7 @@ public class StatementManager {
         String variable = "";
         ArrayList<String> variables = new ArrayList<>();
 
-        Map<Integer, Integer> operatorsPriorities = new HashMap<>();
+        Map<Integer, Integer> operatorsPriorities = new TreeMap<>();
         int position;
         int priority = 0;
 
@@ -25,7 +26,7 @@ public class StatementManager {
 
             if (isOperator(String.valueOf(line.charAt(i)),priority) || isOperator(line.substring(i, i+1),priority)) {
                 position = i;
-                operatorsPriorities.put(position,priority);
+                operatorsPriorities.put(priority, position);
                 if (variable != "") {
                     if (!variables.contains(variable)) {
                         variables.add(variable);
