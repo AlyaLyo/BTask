@@ -2,7 +2,7 @@ package operator;
 
 public class Negation implements Operator {
 
-    final int priority = 4;
+    int priority = 4;
     final int amountOfVariables = 1;
     final String mark = "!";
 
@@ -14,6 +14,11 @@ public class Negation implements Operator {
     @Override
     public int getPriority() {
         return priority;
+    }
+
+    @Override
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     @Override

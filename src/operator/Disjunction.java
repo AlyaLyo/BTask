@@ -2,24 +2,25 @@ package operator;
 
 public class Disjunction implements Operator {
 
-    final int priority = 2;
+    int priority = 2;
     final int amountOfVariables = 2;
     final String mark = "|";
 
     @Override
     public boolean execute(boolean... variable) {
-        if (variable[0] || variable[1]) {
-            return true;
-        }
-        else {
-            return false;
-        }
+        return variable[0] || variable[1];
     }
 
     @Override
     public int getPriority() {
         return priority;
     }
+
+    @Override
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
 
     @Override
     public int getAmountOfVariables() {

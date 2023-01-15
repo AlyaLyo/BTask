@@ -2,7 +2,7 @@ package operator;
 
 public class Conjuction implements Operator {
 
-    final int priority = 3;
+    int priority = 3;
     final int amountOfVariables = 2;
     final String mark = "&";
 
@@ -14,6 +14,11 @@ public class Conjuction implements Operator {
     @Override
     public int getPriority() {
         return priority;
+    }
+
+    @Override
+    public void setPriority(int priority) {
+        this.priority = priority;
     }
 
     @Override

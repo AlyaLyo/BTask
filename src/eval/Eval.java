@@ -2,9 +2,7 @@ package eval;
 
 import statement.StatementNode;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.*;
 import java.util.stream.Collectors;
 
 public class Eval {
@@ -53,9 +51,7 @@ public class Eval {
     private void generateVariants(int curr, int max) {
         if (curr == max) {
             boolean[] newV = new boolean[max];
-            for (int i = 0; i < max; i++) {
-                newV[i] = variant[i];
-            }
+            System.arraycopy(variant, 0, newV, 0, max);
             allVariants.add(newV);
             return;
         }
@@ -74,7 +70,7 @@ public class Eval {
     }
 
     public void eval() {
-        List<NameAndInd> varNames = vars.stream().map(var -> new Eval.NameAndInd(var.name)).collect(Collectors.toSet()).stream().toList();
+        List<NameAndInd> varNames = vars.stream().map(var -> new NameAndInd(var.name)).distinct().collect(Collectors.toList());
 
         varNames.forEach(varName -> {
             for (int i = 0; i < vars.size(); i++) {
@@ -84,7 +80,7 @@ public class Eval {
             }
         });
 
-        System.out.println(varNames.toString());
+//        System.out.println(varNames.toString());
         List<boolean[]> variants = getAllVariants(varNames.size());
         List<Boolean> results = new ArrayList<>();
         variants.forEach(variant -> {
@@ -96,7 +92,7 @@ public class Eval {
             results.add(statementNode.exec());
         });
 
-        System.out.println(results);
+//        System.out.println(results);
 
         int t = (int) results.stream().filter(res -> res).count();
 
@@ -109,9 +105,7 @@ public class Eval {
             return;
         }
 
-        StringBuilder sb = new StringBuilder();
-        sb.append("Satisfiable and invalid, ").append(t).append(" true and ").append(results.size() - t).append(" false cases");
-        System.out.println(sb.toString());
+        System.out.println("Satisfiable and invalid, " + t + " true and " + (results.size() - t) + " false cases");
     }
 
 }

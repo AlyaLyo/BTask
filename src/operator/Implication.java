@@ -2,27 +2,25 @@ package operator;
 
 public class Implication implements Operator {
 
-    final int priority = 1;
+    int priority = 1;
     final int amountOfVariables = 2;
     final String mark = "->";
 
     @Override
     public boolean execute(boolean... variable) {
-        if (!variable[0]) {
-            return true;
-        }
-        else {
-            if (!variable[1]) {
-                return false;
-            }
-            return true;
-        }
+        return !variable[0] || variable[1];
     }
 
     @Override
     public int getPriority() {
         return priority;
     }
+
+    @Override
+    public void setPriority(int priority) {
+        this.priority = priority;
+    }
+
 
     @Override
     public int getAmountOfVariables() {
